@@ -1,0 +1,134 @@
+All Recipes
+{
+	Thermobaric Device Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 1.0
+			Components
+			{
+				Catalyst
+				{
+					"Firestone Shard" = 1
+				}
+				
+				Shell
+				{
+					"Latten" = 1
+				}
+				
+				Fuel
+				{
+					"Coal" = 5
+				}
+		
+			}
+			
+			Results
+			{
+				"Thermobaric Device" = 5
+			}
+
+			Crafting Stations
+			{
+				Alchemy Table
+				{
+					craftTime 4.0
+					energyCost = 7.5
+				}				
+			}
+		}
+	}
+
+	Thermobaric Cluster Device Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 2.0
+			Components
+			{
+				Catalyst
+				{
+					"Firestone Shard" = 1
+				}
+				
+				Fuel
+				{
+					"Coal" = 15
+				}
+
+				Devices
+				{
+					"Thermobaric Device" = 10
+				}
+		
+			}
+			
+			Results
+			{
+				"Thermobaric Cluster Device" = 1
+			}
+
+			Crafting Stations
+			{
+				Alchemy Table
+				{
+					craftTime 7.5
+					energyCost = 15.0
+				}				
+			}
+		}
+	}
+
+	Thermonuclear Device Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 3.0
+			Components
+			{
+				Catalyst
+				{
+					"Firestone Shard" = 7
+				}
+
+				Reagent
+				{
+					"Black Rock" = 1
+				}
+
+				Fuel
+				{
+					"Coal" = 50
+				}
+				
+				Device
+				{
+					"Thermobaric Cluster Device" = 1
+				}
+		
+			}
+			
+			Results
+			{
+				"Thermonuclear Device" = 1
+			}
+
+			Crafting Stations
+			{
+				Alchemy Table
+				{
+					craftTime 15.0
+					energyCost = 40.0
+				}				
+			}
+		}
+	}
+
+}

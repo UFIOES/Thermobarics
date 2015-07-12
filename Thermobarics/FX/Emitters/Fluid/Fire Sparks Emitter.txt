@@ -1,0 +1,157 @@
+{
+	FX
+	{
+		Sparks Quarter Emitter
+		{
+			Emitter
+			{
+				type = "Fluid"
+				lifespan = 999999
+				endless
+
+				EmbersQuarter
+				{
+					rate = 8
+					rateVariance = 2
+					oscillation = 100
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.75f, 0.0f>
+					velocityVariance = <0.25f, 0.5f, 0.25f>
+					rotation = 0
+					rotationVariance = 180
+					type = "spherical"
+					radius = .025
+					emitFrom = "volume"
+					randomizeAtSpawn
+				}
+		
+			}
+			Transform
+			{
+			}
+		}
+
+		Sparks Half Emitter
+		{
+			Emitter
+			{
+				type = "Fluid"
+				lifespan = 999999
+				endless
+
+				EmbersHalf
+				{
+					rate = 12
+					rateVariance = 3
+					oscillation = 100
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.75f, 0.0f>
+					velocityVariance = <0.25f, 0.5f, 0.25f>
+					rotation = 0
+					rotationVariance = 180
+					type = "spherical"
+					radius = .025
+					emitFrom = "volume"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+		
+		Sparks 1 Emitter
+		{
+			Emitter
+			{
+				type = "Fluid"
+				lifespan = 999999
+				endless
+
+				Embers1
+				{
+					rate = 24
+					rateVariance = 4
+					oscillation = 100
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.75f, 0.0f>
+					velocityVariance = <0.25f, 0.5f, 0.25f>
+					rotation = 0
+					rotationVariance = 180
+					type = "spherical"
+					radius = .05
+					emitFrom = "volume"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Huge Sparks Emitter
+		{
+			Emitter
+			{
+				type = "Fluid"
+				lifespan = 999999
+				endless
+
+				Embers1
+				{
+					rate = 40
+					rateVariance = 8
+					oscillation = 100
+					start = 0
+					stop = 1
+					velocity = <0.25f, 1.5f, 0.25f>
+					velocityVariance = <0.5f, 0.75f, 0.5f>
+					rotation = 0
+					rotationVariance = 180
+					type = "spherical"
+					radius = .06
+					emitFrom = "volume"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Massive Sparks Emitter
+		{
+			Emitter
+			{
+				type = "Fluid"
+				lifespan = 999999
+				endless
+
+				Embers1
+				{
+					rate = 60
+					rateVariance = 8
+					oscillation = 100
+					start = 0
+					stop = 1
+					velocity = <0.25f, 4f, 0.25f>
+					velocityVariance = <0.75f, 1.25f, 0.75f>
+					rotation = 0
+					rotationVariance = 180
+					type = "spherical"
+					radius = .06
+					emitFrom = "volume"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+
+	}
+}

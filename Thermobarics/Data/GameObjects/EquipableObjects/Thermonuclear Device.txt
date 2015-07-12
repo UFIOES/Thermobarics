@@ -1,0 +1,116 @@
+
+GameObjects
+{
+	Equipable
+	{
+		Thermonuclear Device
+		{
+			#Tag = "Explosives"
+			
+			Transform
+			{
+			}
+			
+			Script
+			{
+				file = "Scripts/Objects/Explosives/ThermonuclearDevice.lua"
+				class = "ThermonuclearDevice"
+				arguments
+				{
+					throwable = 1
+				}
+			}
+
+			StaticGraphics
+			{
+				model = "Models/PlaceableObjects/Bomb.obj"
+				dontCastShadows = 1.0
+				
+				Diffuse
+				{
+					"Body" = "Models/PlaceableObjects/BodyNuke.png"
+					"Cap" = "Models/PlaceableObjects/Cap.png"
+					"Fuse" = "Models/PlaceableObjects/Fuse.png"
+				}
+
+				Specular
+				{
+					"Body" = "Models/PlaceableObjects/Sphecular.png"
+					"Cap" = "Models/PlaceableObjects/Sphecular.png"
+					"Fuse" = "Models/PlaceableObjects/Sphecular.png"
+				}
+
+			}
+
+			#RigidBody
+			#{
+			#	activePhysics = 1
+			#	mass = 15.0
+			#	friction = 6.0
+			#}
+			Physics
+			{
+				Colliders
+				{
+					Mesh
+					{
+						mass = 5.0
+						convex = 0
+					}
+				}
+
+				Rigidbody
+				{
+					keyframed = 1
+				}
+			}
+
+			Equipable
+			{
+				name = "Thermonuclear Device"
+				icon = "NukeDevice"
+				minScale = 1.0
+				maxScale = 1.0
+				
+				resource = 1
+				encumbrance = 1
+				throwable = 1
+				
+				category = "Explosive"
+				tier = 5
+				damageToCharacters = 0.0
+				damageToObjects = 0.0
+				maxStackCount = 1.0
+				weaponRange = 7.0
+
+				miningEmitter = "Slingshot Stone Break Emitter"
+				miningEmitterAlt = "Strike WoodLight Emitter"
+				
+				Equipment Slots
+				{
+					Tool
+				}
+			}
+			
+			Children
+			{
+				#FireBall Attractor
+				#{
+				#	offset = <1.0, 1.0, 1.0>
+				#	emitter = "Smoke 1 Emitter"
+				#}
+				Massive Sparks Emitter
+				{
+					offset = <0.4, 0.3, 0.4>
+				}
+				Flames Half Emitter
+				{
+					offset = <0.4, 0.3, 0.3>
+				}
+
+			}
+
+		}
+	}
+}
+

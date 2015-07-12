@@ -1,0 +1,95 @@
+
+GameObjects
+{
+	PlaceableObjects
+	{
+		Radioactive Waste
+		{
+			#Tag = "Explosives"
+			
+			Transform
+			{
+			}
+			
+			Script
+			{
+				file = "Scripts/Objects/Explosives/RadioactiveWaste.lua"
+				class = "RadioactiveWaste"
+				arguments
+				{
+					encumbrance = 1
+				}
+			}
+
+			StaticGraphics
+			{
+				model = "Character/Weapons/stone.obj"
+				dontCastShadows = 1.0
+				
+				Diffuse
+				{
+					"stone" = "Character/Weapons/slingshot_diff.tga"
+				}
+
+				Normal
+				{
+					"stone" = "Character/Weapons/slingshot_norm.tga"
+				}
+			}
+
+			#RigidBody
+			#{
+			#	activePhysics = 1
+			#	mass = 15.0
+			#	friction = 6.0
+			#}
+			Physics
+			{
+				Colliders
+				{
+					Mesh
+					{
+						mass = 5.0
+						convex = 0
+					}
+				}
+
+				Rigidbody
+				{
+					keyframed = 1
+				}
+			}
+
+			Placeable
+			{
+				name = "Radioactive Waste"
+				minScale = 20.0
+				maxScale = 20.0
+
+				resource = 0
+				
+				damageToCharacters = 0.0
+				damageToObjects = 0.0
+				maxStackCount = 0
+				weaponRange = 7.0
+
+				miningEmitter = "Slingshot Stone Break Emitter"
+				miningEmitterAlt = "Strike WoodLight Emitter"
+				
+			}
+
+			Light
+			{
+				lightRadius = 5
+				lightOffset = <0, 0, 0>
+				lightColor = <0.5, 0.5, 0.0>
+			}
+
+			Children
+			{
+			}
+
+		}
+	}
+}
+

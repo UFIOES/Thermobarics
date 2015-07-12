@@ -1,0 +1,28 @@
+Particles
+{
+
+	RadiationAura
+	{
+		textureName = "FX/Textures/mote.tga"
+		textureSize = 256
+		elasticity = 0.0
+		addColor = <0.0, 0.0, 0.0>
+		multiplyColor = <0.1, 0.4, 0.0>
+		rotationSpeed = 0.0
+		scaling = <0.5,0.5,0.5>
+		#scalingSpeed = <0.0, 0.0, 0.0>
+		scalingSpeed = <-0.25, -0.25, -0.25>
+		scalingType = "multiply"
+		scalingVariance = 0.2
+		acceleration = <0.0, 0.0, 0.0>
+		maxAge = 2
+		ageVariance = .5
+		ageToStartFading = 1
+		ageToStartShrinking = 0
+		blendType = "additive"
+		fadeInAge = 1
+		growInAge = 0
+		speedCap = 100
+	}
+
+}

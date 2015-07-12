@@ -1,0 +1,33 @@
+{
+	FX
+	{
+
+		Radiation Aura Emitter
+		{
+			Emitter
+			{
+				lifespan = 999999
+				endless
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 4.0
+					rateVariance = 4.0
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <1.5f, 1.5f, 1.5f>
+					rotation = 0
+					rotationVariance = 180
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+	}
+}

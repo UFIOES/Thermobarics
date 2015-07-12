@@ -1,0 +1,103 @@
+
+GameObjects
+{
+	PlaceableObjects
+	{
+		Thermobaric Shrapnel
+		{
+			#Tag = "Explosives"
+			
+			Transform
+			{
+			}
+			
+			Script
+			{
+				file = "Scripts/Objects/Explosives/ThermobaricShrapnel.lua"
+				class = "ThermobaricShrapnel"
+				arguments
+				{
+					encumbrance = 1
+				}
+			}
+
+			StaticGraphics
+			{
+				model = "Character/Weapons/stone.obj"
+				dontCastShadows = 1.0
+				
+				Diffuse
+				{
+					"stone" = "Character/Weapons/slingshot_diff.tga"
+				}
+
+				Normal
+				{
+					"stone" = "Character/Weapons/slingshot_norm.tga"
+				}
+			}
+
+			#RigidBody
+			#{
+			#	activePhysics = 1
+			#	mass = 15.0
+			#	friction = 6.0
+			#}
+			Physics
+			{
+				Colliders
+				{
+					Mesh
+					{
+						mass = 5.0
+						convex = 0
+					}
+				}
+
+				Rigidbody
+				{
+					keyframed = 1
+				}
+			}
+
+			Placeable
+			{
+				name = "Thermobaric Shrapnel"
+				minScale = 1.0
+				maxScale = 1.0
+
+				resource = 0
+				
+				category = "Explosive"
+				tier = 3
+				damageToCharacters = 0.0
+				damageToObjects = 0.0
+				maxStackCount = 100.0
+				weaponRange = 7.0
+
+				miningEmitter = "Slingshot Stone Break Emitter"
+				miningEmitterAlt = "Strike WoodLight Emitter"
+				
+				Equipment Slots
+				{
+					Tool
+				}
+			}
+			
+			Children
+			{
+				FireBall Attractor
+				{
+					offset = <0.0, 1.0, 0.0>
+					emitter = "Magic FireBall Trail Emitter"
+				}
+				Magic FireBall Trail Emitter
+				{
+					offset = <0.0, 0.0, 0.0>
+				}
+			}
+
+		}
+	}
+}
+
