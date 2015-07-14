@@ -25,7 +25,7 @@ function ThermonuclearDevice:Explode()
 
 	local player = Eternus.GameState:GetLocalPlayer()
 
-	if player and (player:NKGetInstance():NKGetPosition() - self:NKGetPosition()):NKLength() > 75 then
+	if player and (player:NKGetInstance():NKGetPosition() - self:NKGetPosition()):NKLength() > 100 then
 
 		self.fuse = 12
 
@@ -93,7 +93,7 @@ function ThermonuclearDevice:Explode()
 		end
 	end
 
-	Thermobarics.instance:AddRadation(position, self.radius)
+	Thermobarics.instance:AddRadation(position, self.radius * 1.5)
 
 --[[
 	for u = 0, 9 do

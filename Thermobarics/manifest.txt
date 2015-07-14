@@ -7,7 +7,7 @@ Manifest
 	Description = "Adds thermobaric devices"
 
 	# The major version number.
-	MajorVersion = 1.0
+	MajorVersion = 2.0
 
 	# The minor version number.
 	MinorVersion = 0.0

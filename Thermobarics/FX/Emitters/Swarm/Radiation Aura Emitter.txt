@@ -2,7 +2,63 @@
 	FX
 	{
 
-		Radiation Aura Emitter
+		Radiation Aura 1 Emitter
+		{
+			Emitter
+			{
+				lifespan = 999999
+				endless
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 1.0
+					rateVariance = 0.5
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <1.35f, 1.35f, 1.35f>
+					rotation = 0
+					rotationVariance = 0
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Radiation Aura 2 Emitter
+		{
+			Emitter
+			{
+				lifespan = 999999
+				endless
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 2.0
+					rateVariance = 1.0
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <1.4f, 1.4f, 1.4f>
+					rotation = 0
+					rotationVariance = 0
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Radiation Aura 3 Emitter
 		{
 			Emitter
 			{
@@ -13,14 +69,14 @@
 				RadiationAura
 				{
 					rate = 4.0
-					rateVariance = 4.0
+					rateVariance = 1.5
 					oscillation = 2.0
 					start = 0
 					stop = 1
 					velocity = <0.0f, 0.0f, 0.0f>
 					velocityVariance = <1.5f, 1.5f, 1.5f>
 					rotation = 0
-					rotationVariance = 180
+					rotationVariance = 0
 					type = "point"
 					randomizeAtSpawn
 				}
@@ -29,5 +85,118 @@
 			{
 			}
 		}
+
+		Radiation Aura 4 Emitter
+		{
+			Emitter
+			{
+				lifespan = 999999
+				endless
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 8.0
+					rateVariance = 4.0
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <1.75f, 1.75f, 1.75f>
+					rotation = 0
+					rotationVariance = 0
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Radiation Aura 5 Emitter
+		{
+			Emitter
+			{
+				lifespan = 999999
+				endless
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 16.0
+					rateVariance = 8.0
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <2.0f, 2.0f, 2.0f>
+					rotation = 0
+					rotationVariance = 0
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Radiation Aura 6 Emitter
+		{
+			Emitter
+			{
+				lifespan = 999999
+				endless
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 32.0
+					rateVariance = 12.0
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <2.5f, 2.5f, 2.5f>
+					rotation = 0
+					rotationVariance = 0
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
+		Temp Radiation Aura Emitter
+		{
+			Emitter
+			{
+				lifespan = 0.25
+				Burst
+				type = "Swarm"
+
+				RadiationAura
+				{
+					rate = 5.0
+					rateVariance = 0.5
+					oscillation = 2.0
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <1.35f, 1.35f, 1.35f>
+					rotation = 0
+					rotationVariance = 0
+					type = "point"
+					randomizeAtSpawn
+				}
+			}
+			Transform
+			{
+			}
+		}
+
 	}
 }
