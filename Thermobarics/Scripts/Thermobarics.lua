@@ -53,6 +53,7 @@ function Buffable:ApplyBuff( newBuff )
 
 	newBuff:OnStart()
 end
+
 -------------------------------------------------------------------------------
 if Thermobarics == nil then
 	Thermobarics = EternusEngine.ModScriptClass.Subclass("Thermobarics")

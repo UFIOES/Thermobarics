@@ -101,11 +101,11 @@ GameObjects
 				#}
 				Massive Sparks Emitter
 				{
-					offset = <0.4, 0.3, 0.4>
+					offset = <0.0, 0.352, 0.0>
 				}
 				Flames Half Emitter
 				{
-					offset = <0.4, 0.3, 0.3>
+					offset = <0.0, 0.352, 0.0>
 				}
 
 			}

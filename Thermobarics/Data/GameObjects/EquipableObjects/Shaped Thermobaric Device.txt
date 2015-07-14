@@ -3,7 +3,7 @@ GameObjects
 {
 	Equipable
 	{
-		Thermobaric Device
+		Shaped Thermobaric Device
 		{
 			#Tag = "Explosives"
 			
@@ -13,33 +13,24 @@ GameObjects
 			
 			Script
 			{
-				file = "Scripts/Objects/Explosives/ThermobaricDevice.lua"
-				class = "ThermobaricDevice"
+				file = "Scripts/Objects/Explosives/ShapedThermobaricDevice.lua"
+				class = "ShapedThermobaricDevice"
 				arguments
 				{
-					throwable = 1
 				}
 			}
 
 			StaticGraphics
 			{
-				model = "Models/PlaceableObjects/Bomb.obj"
+				model = "Models/PlaceableObjects/ShapedCharge.obj"
 				dontCastShadows = 1.0
 				
 				Diffuse
 				{
-					"Body" = "Models/PlaceableObjects/BodySolid.png"
+					"Shell" = "Models/PlaceableObjects/ShellPara.png"
 					"Cap" = "Models/PlaceableObjects/Cap.png"
 					"Fuse" = "Models/PlaceableObjects/Fuse.png"
 				}
-
-				Specular
-				{
-					"Body" = "Models/PlaceableObjects/Sphecular.png"
-					"Cap" = "Models/PlaceableObjects/Sphecular.png"
-					"Fuse" = "Models/PlaceableObjects/Sphecular.png"
-				}
-
 			}
 
 			#RigidBody
@@ -67,17 +58,17 @@ GameObjects
 
 			Equipable
 			{
-				name = "Thermobaric Device"
-				icon = "SolidDevice"
+				name = "Shaped Thermobaric Device"
+				icon = "ShapedDevice"
 				minScale = 1.0
 				maxScale = 1.0
 				
 				resource = 1
 				encumbrance = 1
-				throwable = 1
+				placeWithNoPhysics = 1
 				
 				category = "Explosive"
-				tier = 3
+				tier = 4
 				damageToCharacters = 0.0
 				damageToObjects = 0.0
 				maxStackCount = 50.0
@@ -96,11 +87,11 @@ GameObjects
 			{
 				Huge Sparks Emitter
 				{
-					offset = <0.0, 0.352, 0.0>
+					offset = <0.0, -0.248, 0.0>
 				}
 				Smoke 1 Emitter
 				{
-					offset = <0.0, 0.352, 0.0>
+					offset = <0.0, -0.248, 0.0>
 				}
 
 			}

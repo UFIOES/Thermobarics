@@ -49,7 +49,7 @@ end
 
 function ThermobaricShrapnel:Explode()
 
-	local collectedObjects = NKPhysics.SphereOverlapCollect(4, self:NKGetPosition(), {self.object} )
+	local collectedObjects = NKPhysics.SphereOverlapCollect(4, self:NKGetPosition(), {self.object})
 
 	if collectedObjects then
 		for key,collectedObject in pairs(collectedObjects) do
@@ -96,8 +96,8 @@ function ThermobaricShrapnel:Explode()
 
 	self.deleteMeLater = 2
 
-	self:NKSetShouldRender(false)
-	self:NKSetEmitterActive(false)
+	self:NKSetShouldRender(false, true)
+	self:NKRemoveFromWorld(false, true)
 
 	self:NKEnableScriptProcessing(true, 1000)
 

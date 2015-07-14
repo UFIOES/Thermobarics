@@ -1,5 +1,115 @@
 All Recipes
 {
+	Fuse Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 3.0
+			Components
+			{
+				Wick
+				{
+					"Vines" = 1
+				}
+
+				Fuel
+				{
+					"Coal" = 1
+				}
+			}
+			
+			Results
+			{
+				"Fuse" = 1
+			}
+
+			Crafting Stations
+			{
+				Fire Pit
+				{
+					craftTime 1.5
+				}				
+			}
+		}
+	}
+	
+	Hemispherical Shell Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 1.0
+			Components
+			{
+				Shell
+				{
+					"Coconut Shell" = 1
+				}
+
+				Metal
+				{
+					"Latten" = 1
+				}
+
+			}
+			
+			Results
+			{
+				"Hemispherical Shell" = 1
+			}
+
+			Crafting Stations
+			{
+				Sandcast Mold
+				{
+					spawnOffsetOverride = <0.0, 2.0, 0.0>
+					craftTime = 3.0
+				}				
+			}
+		}
+	}
+
+	Parabolic Shell Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 1.0
+			Components
+			{
+				Shell
+				{
+					"Hemispherical Shell" = 1
+				}
+
+			}
+			
+			Results
+			{
+				"Parabolic Shell" = 1
+			}
+
+			Crafting Tool
+			{
+				category = "Hammer"
+				tier = 3
+			}
+		
+			Crafting Stations
+			{
+				Stone Anvil
+				{
+					spawnOffsetOverride = <0.0, 2.0, 0.0>
+					craftTime = 3.0
+				}
+			}
+		}
+	}
+
 	Thermobaric Device Recipe
 	{	
 		Script = "Scripts/Recipes/DefaultRecipe.lua"
@@ -9,34 +119,73 @@ All Recipes
 			priority = 1.0
 			Components
 			{
-				Catalyst
-				{
-					"Firestone Shard" = 1
-				}
-				
 				Shell
 				{
-					"Latten" = 1
+					"Hemispherical Shell" = 2
 				}
 				
 				Fuel
 				{
 					"Coal" = 5
 				}
-		
+				
+				Fuse
+				{
+					"Fuse" = 1
+				}
 			}
 			
 			Results
 			{
-				"Thermobaric Device" = 5
+				"Thermobaric Device" = 1
+			}
+
+			Crafting Stations
+			{
+				Artisan Workbench
+				{
+					craftTime 2.0
+				}				
+			}
+		}
+	}
+
+	Shaped Thermobaric Device Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 1.0
+			Components
+			{
+				Shell
+				{
+					"Parabolic Shell" = 1
+				}
+				
+				Fuel
+				{
+					"Coal" = 10
+				}
+				
+				Fuse
+				{
+					"Fuse" = 1
+				}
+			}
+			
+			Results
+			{
+				"Shaped Thermobaric Device" = 1
 			}
 
 			Crafting Stations
 			{
 				Alchemy Table
 				{
-					craftTime 4.0
-					energyCost = 7.5
+					craftTime 2.0
+					energyCost = 5.0
 				}				
 			}
 		}
@@ -61,11 +210,21 @@ All Recipes
 					"Coal" = 15
 				}
 
-				Devices
+				Device
 				{
-					"Thermobaric Device" = 10
+					"Thermobaric Device" = 1
 				}
-		
+
+				Shell
+				{
+					"Hemispherical Shell" = 2
+				}
+				
+				Fuse
+				{
+					"Fuse" = 1
+				}
+
 			}
 			
 			Results
@@ -77,7 +236,7 @@ All Recipes
 			{
 				Alchemy Table
 				{
-					craftTime 7.5
+					craftTime 5.0
 					energyCost = 15.0
 				}				
 			}

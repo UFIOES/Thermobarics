@@ -70,7 +70,7 @@
 				lifespan = 999999
 				endless
 
-				Embers1
+				BigEmbers
 				{
 					rate = 24
 					rateVariance = 4
@@ -100,7 +100,7 @@
 				lifespan = 999999
 				endless
 
-				Embers1
+				BigEmbers
 				{
 					rate = 40
 					rateVariance = 8
@@ -130,7 +130,7 @@
 				lifespan = 999999
 				endless
 
-				Embers1
+				BigEmbers
 				{
 					rate = 60
 					rateVariance = 8

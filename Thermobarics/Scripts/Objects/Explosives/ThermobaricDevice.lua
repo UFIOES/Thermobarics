@@ -66,7 +66,7 @@ end
 
 function ThermobaricDevice:Interact(args)
 
-	if args.heldItem and args.heldItem:NKGetName() == "Firestone Shard" then
+	--if args.heldItem and args.heldItem:NKGetName() == "Firestone Shard" then
 
 		self:NKEnableScriptProcessing(true, 1000)
 
@@ -76,9 +76,9 @@ function ThermobaricDevice:Interact(args)
 
 		return true
 
-	end
+	--end
 
-	return false
+	--return false
 
 end
 
@@ -89,8 +89,6 @@ function ThermobaricDevice:Update(dt)
 		self.deleteMeLater = self.deleteMeLater - dt
 
 		if self.deleteMeLater < 0 then
-
-			NKPrint("BYE!!!")
 
 			self:NKDeleteMe()
 
@@ -112,7 +110,7 @@ end
 
 function ThermobaricDevice:Explode()
 
-	local collectedObjects = NKPhysics.SphereOverlapCollect(4, self:NKGetPosition(), {self.object} )
+	local collectedObjects = NKPhysics.SphereOverlapCollect(4, self:NKGetPosition(), {self.object})
 
 	if collectedObjects then
 		for key,collectedObject in pairs(collectedObjects) do
