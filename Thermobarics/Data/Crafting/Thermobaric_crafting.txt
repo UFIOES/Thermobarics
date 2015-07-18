@@ -254,7 +254,7 @@ All Recipes
 			{
 				Catalyst
 				{
-					"Firestone Shard" = 7
+					"Firestone Shard" = 5
 				}
 
 				Reagent

@@ -6,15 +6,16 @@ if ThermobaricDevice == nil then
 	ThermobaricDevice = Equipable.Subclass("ThermobaricDevice")
 end
 
-ThermobaricDevice.RegisterScriptEvent("ClientEvent_Explode",
-	{
-	}
-)
-
 -------------------------------------------------------------------------------
 function ThermobaricDevice:Constructor(args)
 
 	self.fuse = 5
+
+	self.radius = 5
+
+	self.minDamage = 20
+
+	self.maxDamage = 80
 
 end
 
@@ -108,9 +109,23 @@ function ThermobaricDevice:Update(dt)
 
 end
 
-function ThermobaricDevice:Explode()
+function ThermobaricDevice:CalculateDamage(pos)
 
-	local collectedObjects = NKPhysics.SphereOverlapCollect(4, self:NKGetPosition(), {self.object})
+	if not self.damageCoefficient then
+
+		self.damageCoefficient = -math.log(self.minDamage/self.maxDamage)/self.radius
+
+	end
+
+	local distance = (pos - self:NKGetWorldPosition()):NKLength()
+
+	return self.maxDamage * math.exp(-distance * self.damageCoefficient)
+
+end
+
+function ThermobaricDevice:DamageObjects()
+
+	local collectedObjects = NKPhysics.SphereOverlapCollect(self.radius - 0.5, self:NKGetWorldPosition(), {self.object})
 
 	if collectedObjects then
 		for key,collectedObject in pairs(collectedObjects) do
@@ -120,9 +135,9 @@ function ThermobaricDevice:Explode()
 					gameobjectsInstance.fuse = 0
 					gameobjectsInstance:Explode()
 				elseif gameobjectsInstance:InstanceOf(AICharacter) then
-					gameobjectsInstance:OnHit(self, 20)
+					gameobjectsInstance:OnHit(self, self:CalculateDamage(gameobjectsInstance:NKGetWorldPosition()))
 				elseif gameobjectsInstance:InstanceOf(BasePlayer) then
-					gameobjectsInstance:RaiseServerEvent("ServerEvent_TakeDamage", {damage = 20, category = "Undefined"})
+					gameobjectsInstance:RaiseServerEvent("ServerEvent_TakeDamage", {damage = self:CalculateDamage(gameobjectsInstance:NKGetWorldPosition()), category = "Undefined"})
 				elseif gameobjectsInstance:InstanceOf(EternusEngine.GameObjectClass) then
 					gameobjectsInstance:ModifyHitPoints(-100)
 				end
@@ -130,7 +145,9 @@ function ThermobaricDevice:Explode()
 		end
 	end
 
-	self:RaiseClientEvent("ClientEvent_Explode", {})
+end
+
+function ThermobaricDevice:DamageTerrain()
 
 	local modificationType = EternusEngine.Terrain.EVoxelOperationsStrings["Remove"]
 	local brushType = EternusEngine.Terrain.EVoxelBrushShapesStrings["Sphere"]
@@ -143,7 +160,7 @@ function ThermobaricDevice:Explode()
 	local input = {
 		modificationType = modificationType,
 		materialID = 0,
-		position = self:NKGetPosition(),
+		position = self:NKGetWorldPosition(),
 		dimensions = vec3.new(1.0,1.0,1.0),
 		radius = 5,
 		brushType = brushType,
@@ -153,19 +170,29 @@ function ThermobaricDevice:Explode()
 
 	Eternus.Terrain:NKModifyWorld(input)
 
-	--self:NKDeleteMe()
+end
 
-	self.deleteMeLater = 5
+function ThermobaricDevice:SpawnFX()
 
-	self:NKSetShouldRender(false)
-	self:NKSetEmitterActive(false)
+	local fx = Eternus.GameObjectSystem:NKCreateNetworkedGameObject("Thermobaric FXObject", true, true)
 
-	self:NKEnableScriptProcessing(true, 1000)
+	fx:NKSetPosition(self:NKGetWorldPosition())
+
+	fx:NKPlaceInWorld(false, false)
+	fx:NKSetShouldRender(false)
 
 end
 
-function ThermobaricDevice:ClientEvent_Explode(args)
-	self:NKGetSound():NKPlay3DSound("FireballExplosion", false, vec3.new(0, 0, 0), 10.0, 100.0)
+function ThermobaricDevice:Explode()
+
+	self:DamageObjects()
+
+	self:DamageTerrain()
+
+	self:SpawnFX()
+
+	self:NKDeleteMe()
+
 end
 
 EntityFramework:RegisterGameObject(ThermobaricDevice)

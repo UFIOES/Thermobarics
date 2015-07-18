@@ -21,7 +21,7 @@ function ShapedThermobaricDevice:OnPlace()
 
 end
 
-function ShapedThermobaricDevice:Explode()
+function ShapedThermobaricDevice:DamageTerrain()
 
 	local modificationType = EternusEngine.Terrain.EVoxelOperationsStrings["Remove"]
 	local brushType = EternusEngine.Terrain.EVoxelBrushShapesStrings["Sphere"]
@@ -49,8 +49,6 @@ function ShapedThermobaricDevice:Explode()
 		Eternus.Terrain:NKModifyWorld(input)
 
 	end
-
-	self:NKDeleteMe()
 
 end
 

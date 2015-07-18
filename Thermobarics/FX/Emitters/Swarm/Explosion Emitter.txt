@@ -1,0 +1,38 @@
+{
+	FX
+	{
+		
+		Small Explosion Emitter
+		{
+			Emitter
+			{
+				type = "Swarm"
+				lifespan = 5
+				burst
+				
+				BigEmbers
+				{
+					rate = 80
+					rateVariance = 8
+					oscillation = 1
+					start = 0
+					stop = 1
+					velocity = <0.0f, 0.0f, 0.0f>
+					velocityVariance = <3.0f, 3.0f, 3.0f>
+					rotation = 0
+					rotationVariance = 180
+					type = "point"
+					randomizeAtSpawn
+				}
+
+
+
+			}
+			Transform
+			{
+			}
+		}
+
+
+	}
+}

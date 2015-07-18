@@ -1,0 +1,11 @@
+Sound
+{
+
+	3DSounds
+	{
+		ThermobaricExplosion
+		{
+			"Sound/explosion/ExplosionClap.ogg"
+		}
+	}
+}

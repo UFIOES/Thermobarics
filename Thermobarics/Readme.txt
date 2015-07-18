@@ -2,7 +2,7 @@ Thermobarics
 
 By: UFIOES
 
-To install, extract Thermobaricsinto \Steam\SteamApps\common\TUG\Mods\
+To install, extract Thermobarics into \Steam\SteamApps\common\TUG\Mods\
 Then add "Mods/Thermobarics" to \Steam\SteamApps\common\TUG\Config\mods.txt
 e.g.
 

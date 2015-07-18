@@ -6,38 +6,30 @@ if ThermonuclearDevice == nil then
 	ThermonuclearDevice = ThermobaricDevice.Subclass("ThermonuclearDevice")
 end
 
-ThermobaricDevice.RegisterScriptEvent("ServerEvent_LayWaste",
-	{
-		position = "vec3"
-	}
-)
-
 function ThermonuclearDevice:Constructor(args)
 
 	self.fuse = 12
 
 	self.radius = 50
 
+	self.minDamage = 750
+
+	self.maxDamage = 5000
+
+end
+
+function ThermonuclearDevice:Spawn()
+
+	self:NKSetEmitterActive(false)
+
+	self:NKGetNet():NKForceGlobalRelevancy(true)
+
 end
 -------------------------------------------------------------------------------
 
-function ThermonuclearDevice:Explode()
+function ThermonuclearDevice:DamageObjects()
 
-	local player = Eternus.GameState:GetLocalPlayer()
-
-	if player and (player:NKGetInstance():NKGetPosition() - self:NKGetPosition()):NKLength() > 100 then
-
-		self.fuse = 12
-
-		self:NKEnableScriptProcessing(false)
-
-		self:NKSetEmitterActive(false)
-
-		return
-
-	end
-
-	local collectedObjects = NKPhysics.SphereOverlapCollect(self.radius, self:NKGetPosition(), {self.object})
+	local collectedObjects = NKPhysics.SphereOverlapCollect(self.radius - 0.5, self:NKGetWorldPosition(), {self.object})
 
 	if collectedObjects then
 		for key,collectedObject in pairs(collectedObjects) do
@@ -46,7 +38,7 @@ function ThermonuclearDevice:Explode()
 				if gameobjectsInstance:InstanceOf(AICharacter) then
 					gameobjectsInstance:NKDeleteMe()
 				elseif gameobjectsInstance:InstanceOf(BasePlayer) then
-					gameobjectsInstance:RaiseServerEvent("ServerEvent_TakeDamage", {damage = 40, category = "Undefined"})
+					gameobjectsInstance:ApplyBuff(RadiationPoisoning.new({dose = self:CalculateDamage(gameobjectsInstance:NKGetWorldPosition())}))
 				elseif gameobjectsInstance:InstanceOf(EternusEngine.GameObjectClass) then
 					gameobjectsInstance:NKDeleteMe()
 				end
@@ -54,12 +46,16 @@ function ThermonuclearDevice:Explode()
 		end
 	end
 
-	self:RaiseClientEvent("ClientEvent_Explode", {})
+end
+
+function ThermonuclearDevice:DamageTerrain()
+
+	local player = Eternus.GameState:GetLocalPlayer()
 
 	local modificationType = EternusEngine.Terrain.EVoxelOperationsStrings["Remove"]
 	local brushType = EternusEngine.Terrain.EVoxelBrushShapesStrings["Cube"]
 
-	local position = self:NKGetPosition()
+	local position = self:NKGetWorldPosition()
 
 	local dimensions = vec3.new(4.0,4.0,4.0)
 
@@ -85,7 +81,7 @@ function ThermonuclearDevice:Explode()
 						userdata1 = self:NKGetNetId()
 					}
 
-					Eternus.Terrain:NKModifyWorld(input)
+					pcall(Eternus.Terrain.NKModifyWorld, Eternus.Terrain, input)
 
 				end
 
@@ -93,7 +89,17 @@ function ThermonuclearDevice:Explode()
 		end
 	end
 
-	Thermobarics.instance:AddRadation(position, self.radius * 1.5)
+end
+
+function ThermonuclearDevice:Explode()
+
+	self:NKGetNet():NKForceGlobalRelevancy(true)
+
+	self:DamageObjects()
+
+	self:DamageTerrain()
+
+	--Thermobarics.instance:AddRadation(self:NKGetWorldPosition(), self.radius * 1.5)
 
 --[[
 	for u = 0, 9 do
@@ -119,6 +125,7 @@ function ThermonuclearDevice:Explode()
 		end
 	end
 ]]
+
 	--self:NKDeleteMe()
 
 	self.deleteMeLater = 300

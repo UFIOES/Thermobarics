@@ -112,7 +112,7 @@ function Thermobarics:Process(dt)
 					local gameobjectsInstance = collectedObject:NKGetInstance()
 					if gameobjectsInstance and gameobjectsInstance:InstanceOf(Buffable) then
 
-						local distance = (gameobjectsInstance:NKGetPosition() - contamination.position):NKLength()
+						local distance = (gameobjectsInstance:NKGetWorldPosition() - contamination.position):NKLength()
 
 						local dose = 100.0 * math.exp(-distance * 0.0599)
 

@@ -123,9 +123,9 @@ function RadiationPoisoning:Update(dt, finished)
 
 		self.time = self.time + dt
 
-		if self.time >= self.delay then
+		self.dose = self.dose * math.exp(-0.0693 * dt)
 
-			self.dose = self.dose * math.exp(-0.0693 * self.time)
+		if self.time >= self.delay then
 
 			self:SwitchEmitter()
 
