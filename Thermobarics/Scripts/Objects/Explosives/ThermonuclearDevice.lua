@@ -99,7 +99,7 @@ function ThermonuclearDevice:Explode()
 
 	self:DamageTerrain()
 
-	--Thermobarics.instance:AddRadation(self:NKGetWorldPosition(), self.radius * 1.5)
+	Thermobarics.instance:AddRadation(self:NKGetWorldPosition(), self.radius * 1.5)
 
 --[[
 	for u = 0, 9 do
