@@ -134,10 +134,8 @@ function ThermobaricDevice:DamageObjects()
 				if gameobjectsInstance:InstanceOf(ThermobaricDevice) and gameobjectsInstance.fuse and not (gameobjectsInstance.fuse <= 0) then
 					gameobjectsInstance.fuse = 0
 					gameobjectsInstance:Explode()
-				elseif gameobjectsInstance:InstanceOf(AICharacter) then
-					gameobjectsInstance:OnHit(self, self:CalculateDamage(gameobjectsInstance:NKGetWorldPosition()))
-				elseif gameobjectsInstance:InstanceOf(BasePlayer) then
-					gameobjectsInstance:RaiseServerEvent("ServerEvent_TakeDamage", {damage = self:CalculateDamage(gameobjectsInstance:NKGetWorldPosition()), category = "Undefined"})
+				elseif gameobjectsInstance:InstanceOf(BaseCharacter) then
+					gameobjectsInstance:ApplyDamage({damage = self:CalculateDamage(gameobjectsInstance:NKGetWorldPosition()), category = "Undefined"})
 				elseif gameobjectsInstance:InstanceOf(EternusEngine.GameObjectClass) then
 					gameobjectsInstance:ModifyHitPoints(-100)
 				end

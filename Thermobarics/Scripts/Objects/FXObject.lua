@@ -10,6 +10,8 @@ function FXObject:Constructor(args)
 
 	self.lifeSpan = args.lifeSpan or 5
 
+	self.sound = args.sound or "ThermobaricExplosion"
+
 end
 
 function FXObject:Spawn()
@@ -18,7 +20,7 @@ function FXObject:Spawn()
 
 	self:NKGetPhysics():NKActivate()
 
-	self:NKGetSound():NKPlay3DSound("ThermobaricExplosion", false, vec3.new(0, 0, 0), 25.0, 50.0)
+	self:NKGetSound():NKPlay3DSound(self.sound, false, vec3.new(0, 0, 0), 25.0, 50.0)
 
 	Eternus.ParticleSystem:NKPlayWorldEmitter(self:NKGetWorldPosition(), "Small Explosion Emitter")
 

@@ -3,7 +3,7 @@ GameObjects
 {
 	PlaceableObjects
 	{
-		Thermobaric FXObject
+		Implosion FXObject
 		{
 			#Tag = "Explosives"
 			
@@ -18,7 +18,7 @@ GameObjects
 				arguments
 				{
 					lifeSpan = 5
-					sound = "ThermobaricExplosion"
+					sound = "ThermobaricImplosion"
 				}
 			}
 
@@ -63,7 +63,7 @@ GameObjects
 
 			Placeable
 			{
-				name = "Thermobaric FXObject"
+				name = "Implosion FXObject"
 				
 				minScale = 1.0
 				maxScale = 1.0

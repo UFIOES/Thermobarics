@@ -15,11 +15,11 @@ function RadioactiveWaste:Fire(velocity)
 
 	self:NKEnableScriptProcessing(true, 500)
 
-	self.rigidbody = self:NKGetPhysics()
-	self.rigidbody:NKActivate()
-	self.rigidbody:NKSetMotionType(PhysicsComponent.DYNAMIC)
+	local rigidbody = self:NKGetPhysics()
+	rigidbody:NKActivate()
+	rigidbody:NKSetMotionType(PhysicsComponent.DYNAMIC)
 
-	self.rigidbody:NKSetVelocity(velocity, vec3.new(0,0,0))
+	rigidbody:NKSetVelocity(velocity, vec3.new(0,0,0))
 
 end
 

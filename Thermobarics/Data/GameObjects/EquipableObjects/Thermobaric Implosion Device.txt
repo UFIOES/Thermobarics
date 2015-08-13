@@ -3,7 +3,7 @@ GameObjects
 {
 	Equipable
 	{
-		Thermobaric Device
+		Thermobaric Implosion Device
 		{
 			#Tag = "Explosives"
 			
@@ -13,8 +13,8 @@ GameObjects
 			
 			Script
 			{
-				file = "Scripts/Objects/Explosives/ThermobaricDevice.lua"
-				class = "ThermobaricDevice"
+				file = "Scripts/Objects/Explosives/ThermobaricImplosionDevice.lua"
+				class = "ThermobaricImplosionDevice"
 				arguments
 				{
 					Stance
@@ -34,7 +34,7 @@ GameObjects
 				
 				Diffuse
 				{
-					"Body" = "Models/PlaceableObjects/BodySolid.png"
+					"Body" = "Models/PlaceableObjects/BodySolidImplosion.png"
 					"Cap" = "Models/PlaceableObjects/Cap.png"
 					"Fuse" = "Models/PlaceableObjects/Fuse.png"
 				}
@@ -66,8 +66,8 @@ GameObjects
 
 			Equipable
 			{
-				name = "Thermobaric Device"
-				icon = "SolidDevice"
+				name = "Thermobaric Implosion Device"
+				icon = "Implosion"
 				minScale = 1.0
 				maxScale = 1.0
 				
@@ -75,10 +75,10 @@ GameObjects
 				encumbrance = 1
 				
 				category = "Explosive"
-				tier = 3
+				tier = 5
 				damageToCharacters = 0.0
 				damageToObjects = 0.0
-				maxStackCount = 50.0
+				maxStackCount = 20.0
 				weaponRange = 7.0
 
 				miningEmitter = "Slingshot Stone Break Emitter"

@@ -137,7 +137,7 @@ function RadiationPoisoning:Update(dt, finished)
 
 				local damage = 20.0 * math.exp((self.dose-1000)*0.00530)
 
-				self.m_object:ServerEvent_TakeDamage({damage = damage, category = "Debuff"})
+				self.m_object:ApplyDamage({damage = damage, category = "Debuff"})
 
 			end
 

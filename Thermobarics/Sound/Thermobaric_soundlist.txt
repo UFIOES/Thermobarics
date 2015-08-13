@@ -7,5 +7,10 @@ Sound
 		{
 			"Sound/explosion/ExplosionClap.ogg"
 		}
+
+		ThermobaricImplosion
+		{
+			"Sound/explosion/ExplosionClapInverse.ogg"
+		}
 	}
 }

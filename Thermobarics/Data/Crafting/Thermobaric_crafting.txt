@@ -290,4 +290,88 @@ All Recipes
 		}
 	}
 
+	Thermobaric Implosion Device Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 2.0
+			Components
+			{
+				Catalyst
+				{
+					"Obsidian Clump" = 64
+				}
+				
+				Fuel
+				{
+					"Coal" = 10
+				}
+
+				Shell
+				{
+					"Hemispherical Shell" = 2
+				}
+				
+				Fuse
+				{
+					"Fuse" = 1
+				}
+
+			}
+			
+			Results
+			{
+				"Thermobaric Implosion Device" = 1
+			}
+
+			Crafting Stations
+			{
+				Alchemy Table
+				{
+					craftTime 5.0
+					energyCost = 15.0
+				}				
+			}
+		}
+	}
+
+	Shaped Thermonihilic Device Recipe
+	{	
+		Script = "Scripts/Recipes/DefaultRecipe.lua"
+		
+		LuaData
+		{
+			priority = 1.0
+			Components
+			{
+				Device
+				{
+					"Shaped Thermobaric Device" = 1
+				}
+				
+				Catalyst
+				{
+					"Obsidian Clump" = 16
+				}
+			}
+			
+			Results
+			{
+				"Shaped Thermonihilic Device" = 1
+			}
+
+			Crafting Stations
+			{
+				Alchemy Table
+				{
+					craftTime 1.0
+					energyCost = 8.0
+				}				
+			}
+		}
+	}
+
+
 }

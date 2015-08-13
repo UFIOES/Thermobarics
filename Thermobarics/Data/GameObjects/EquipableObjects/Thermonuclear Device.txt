@@ -17,7 +17,13 @@ GameObjects
 				class = "ThermonuclearDevice"
 				arguments
 				{
-					throwable = 1
+					Stance
+					{
+						Throw
+						{
+							animation = "HoldPotion"
+						}
+					}
 				}
 			}
 
@@ -31,13 +37,6 @@ GameObjects
 					"Body" = "Models/PlaceableObjects/BodyNuke.png"
 					"Cap" = "Models/PlaceableObjects/Cap.png"
 					"Fuse" = "Models/PlaceableObjects/Fuse.png"
-				}
-
-				Specular
-				{
-					"Body" = "Models/PlaceableObjects/Sphecular.png"
-					"Cap" = "Models/PlaceableObjects/Sphecular.png"
-					"Fuse" = "Models/PlaceableObjects/Sphecular.png"
 				}
 
 			}
@@ -74,7 +73,6 @@ GameObjects
 				
 				resource = 1
 				encumbrance = 1
-				throwable = 1
 				
 				category = "Explosive"
 				tier = 5
